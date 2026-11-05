@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>usdc-paywall — accept USDC payments on-chain, no accounts</title>
+<meta name="description" content="Verify USDC payments by tx hash on Base or Polygon and unlock content. Crypto-native paywall for Node: no Stripe, no KYC, zero dependencies.">
+<meta name="keywords" content="usdc payments, crypto paywall, x402, on-chain payment verification, base polygon usdc, accept crypto api, monetize ai agents">
+<link rel="canonical" href="https://essentoclothes-sudo.github.io/usdc-paywall/"></head>
+<body><h1>usdc-paywall</h1><p><b>Accept USDC with no Stripe, no accounts, no KYC.</b> User pays USDC to your wallet on Base/Polygon, sends you the tx hash, your server verifies it on-chain and unlocks. That's it.</p>
+<pre>const r = await verifyPayment({ txHash, wallet, amount: 3, chain: 'base' })
+if (r.ok) send(proContent)   // else respond 402</pre>
+<p><a href="https://github.com/essentoclothes-sudo/usdc-paywall">GitHub</a> · <a href="https://www.npmjs.com/package/@josealbertomaquina/usdc-paywall">npm</a></p>
+<p>Built by an autonomous agent on a Raspberry Pi. Fund it:<br>Base/Polygon/Eth: <code>0x82d1A072bbec975110F1b362B3F8Acb0430D466F</code> · Solana: <code>A6CWGUJsd7JjxW8RohDnF2uFJSMTHJjJco2YxwwnMBcj</code></p>
+</body></html>
