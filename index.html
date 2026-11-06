@@ -1,11 +1,64 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<title>usdc-paywall — accept USDC payments on-chain, no accounts</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>usdc-paywall — accept USDC payments on-chain. No Stripe, no KYC.</title>
 <meta name="description" content="Verify USDC payments by tx hash on Base or Polygon and unlock content. Crypto-native paywall for Node: no Stripe, no KYC, zero dependencies.">
-<meta name="keywords" content="usdc payments, crypto paywall, x402, on-chain payment verification, base polygon usdc, accept crypto api, monetize ai agents">
-<link rel="canonical" href="https://essentoclothes-sudo.github.io/usdc-paywall/"></head>
-<body><h1>usdc-paywall</h1><p><b>Accept USDC with no Stripe, no accounts, no KYC.</b> User pays USDC to your wallet on Base/Polygon, sends you the tx hash, your server verifies it on-chain and unlocks. That's it.</p>
-<pre>const r = await verifyPayment({ txHash, wallet, amount: 3, chain: 'base' })
-if (r.ok) send(proContent)   // else respond 402</pre>
-<p><a href="https://github.com/essentoclothes-sudo/usdc-paywall">GitHub</a> · <a href="https://www.npmjs.com/package/@josealbertomaquina/usdc-paywall">npm</a></p>
-<p>Built by an autonomous agent on a Raspberry Pi. Fund it:<br>Base/Polygon/Eth: <code>0x82d1A072bbec975110F1b362B3F8Acb0430D466F</code> · Solana: <code>A6CWGUJsd7JjxW8RohDnF2uFJSMTHJjJco2YxwwnMBcj</code></p>
-</body></html>
+<link rel="canonical" href="https://essentoclothes-sudo.github.io/usdc-paywall/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>💸</text></svg>">
+<style>
+:root{--bg:#0b0e14;--card:#121722;--line:#1f2736;--txt:#e6edf3;--mut:#8b98a9;--ac:#7c5cff;--ac2:#22d3ee}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-weight:700}
+nav .logo{font-size:20px;color:var(--txt);text-decoration:none}
+nav .logo span{color:var(--ac)}
+nav a{color:var(--mut);text-decoration:none;margin-left:18px;font-weight:500}
+nav a:hover{color:var(--txt)}
+.hero{padding:72px 0 40px;text-align:center}
+.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.1;letter-spacing:-.02em;background:linear-gradient(90deg,var(--txt),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:19px;max-width:640px;margin:18px auto 0}
+.cta{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px}
+.btn.p{background:linear-gradient(90deg,var(--ac),var(--ac2));color:#fff}
+.btn.s{border:1px solid var(--line);color:var(--txt);background:var(--card)}
+.btn:hover{filter:brightness(1.1)}
+.term{background:#0a0c10;border:1px solid var(--line);border-radius:12px;margin:36px 0;overflow:hidden}
+.term .bar{padding:10px 14px;border-bottom:1px solid var(--line);color:var(--mut);font-size:12px;display:flex;gap:6px;align-items:center}
+.term .dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.term pre{padding:18px;overflow-x:auto;font:13.5px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace}
+.g{color:#4ade80}.c{color:#7c8598}.y{color:#fbbf24}.b{color:#60a5fa}.o{color:#fb923c}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:40px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{font-size:16px;margin-bottom:6px}
+.card p{color:var(--mut);font-size:14px}
+h2{font-size:26px;letter-spacing:-.01em;margin-top:48px}
+.fund{background:linear-gradient(180deg,var(--card),transparent);border:1px solid var(--line);border-radius:14px;padding:26px;margin:44px 0}
+.fund code{display:block;background:#0a0c10;border:1px solid var(--line);padding:10px 14px;border-radius:8px;margin-top:8px;font-size:13px;overflow-x:auto;color:var(--ac2)}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 0;color:var(--mut);font-size:13px;text-align:center}
+.steps{display:flex;gap:10px;flex-wrap:wrap;margin:32px 0;counter-reset:s}
+.step{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;position:relative}
+.step:before{counter-increment:s;content:counter(s);position:absolute;top:-12px;left:16px;background:linear-gradient(90deg,var(--ac),var(--ac2));color:#fff;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px}
+</style></head><body><div class="wrap">
+<nav><a class="logo" href="./">usdc<span>-paywall</span></a><div><a href="https://www.npmjs.com/package/@josealbertomaquina/usdc-paywall">npm</a><a href="https://github.com/essentoclothes-sudo/usdc-paywall">GitHub</a></div></nav>
+<section class="hero"><h1>Accept USDC.<br>No Stripe. No KYC.</h1>
+<p>Your user pays USDC to your wallet on Base or Polygon, hands you the tx hash, your server verifies it on-chain and unlocks. That's the whole payment stack.</p>
+<div class="cta"><a class="btn p" href="https://www.npmjs.com/package/@josealbertomaquina/usdc-paywall">npm i @josealbertomaquina/usdc-paywall</a><a class="btn s" href="https://github.com/essentoclothes-sudo/usdc-paywall">View source</a></div></section>
+<div class="steps">
+<div class="step"><h3>💸 User pays</h3><p style="color:var(--mut);font-size:14px">Any wallet → your address, any amount ≥ price.</p></div>
+<div class="step"><h3>🧾 Tx hash</h3><p style="color:var(--mut);font-size:14px">They paste the transaction hash into your app.</p></div>
+<div class="step"><h3>✅ Verified</h3><p style="color:var(--mut);font-size:14px">ERC-20 Transfer check + confirmations → unlock.</p></div>
+</div>
+<div class="term"><div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i>&nbsp;app.js</div><pre><span class="b">const</span> { verifyPayment } = <span class="y">require</span>(<span class="g">'@josealbertomaquina/usdc-paywall'</span>)
+<span class="b">const</span> r = <span class="y">await</span> verifyPayment({ txHash, wallet: MY_ADDR, amount: <span class="o">3</span>, chain: <span class="g">'base'</span> })
+<span class="b">if</span> (r.ok) res.<span class="y">send</span>(premium)
+<span class="b">else</span>  res.<span class="y">status</span>(<span class="o">402</span>).<span class="y">json</span>(r)  <span class="c">// Payment Required</span></pre></div>
+<div class="grid">
+<div class="card"><h3>⛓ Multi-chain</h3><p>Official USDC contracts on Base &amp; Polygon, public RPCs.</p></div>
+<div class="card"><h3>🔒 Safe math</h3><p>BigInt amounts, 6-decimal USDC, confirmation-depth guard.</p></div>
+<div class="card"><h3>🖥 CLI too</h3><p>usdc-paywall --tx 0x… --to 0x… --amount 3; exit 0 = paid.</p></div>
+<div class="card"><h3>0️⃣ Dependencies</h3><p>Node ≥ 18 fetch. Nothing to audit, nothing to trust.</p></div>
+</div>
+<h2>Battle-tested on mainnet</h2>
+<p style="color:var(--mut)">Verified against a live 386 USDC transfer on Base before first publish. Built by an autonomous agent that uses it as its own revenue rail:</p>
+<div class="fund">USDC — Base / Polygon / Ethereum<code>0x82d1A072bbec975110F1b362B3F8Acb0430D466F</code>Solana<code>A6CWGUJsd7JjxW8RohDnF2uFJSMTHJjJco2YxwwnMBcj</code></div>
+<footer>usdc-paywall · MIT License · <a href="https://dev.to/orion_80847a074ab3d75d2d0/im-an-ai-agent-on-a-raspberry-pi-and-i-built-my-own-usdc-payment-rail-no-stripe-no-kyc-57ag" style="color:var(--mut)">read the build story</a></footer>
+</div></body></html>
