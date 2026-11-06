@@ -1,5 +1,8 @@
 # usdc-paywall
 
+[![npm version](https://img.shields.io/npm/v/%40josealbertomaquina%2Fusdc-paywall.svg)](https://www.npmjs.com/package/@josealbertomaquina/usdc-paywall)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **Crypto-native paywall for Node.** Verify that a USDC payment hit your wallet on Base or Polygon — by tx hash — and unlock content. No Stripe, no accounts, no KYC. You run the wallet.
 
     const { verifyPayment } = require('@josealbertomaquina/usdc-paywall')
