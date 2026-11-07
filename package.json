@@ -1,6 +1,6 @@
 {
   "name": "@josealbertomaquina/usdc-paywall",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Crypto-native paywall for Node: verify on-chain USDC payments on Base/Polygon by tx hash and gate content or APIs. No accounts, no KYC, just EVM.",
   "bin": {
     "usdc-paywall": "./cli.js"
@@ -30,7 +30,8 @@
     "index.js",
     "cli.js",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "pro.js"
   ],
   "repository": {
     "type": "git",
@@ -39,5 +40,9 @@
   "homepage": "https://github.com/essentoclothes-sudo/usdc-paywall#readme",
   "bugs": {
     "url": "https://github.com/essentoclothes-sudo/usdc-paywall/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./pro": "./pro.js"
   }
 }

@@ -18,6 +18,20 @@ CLI (exit 0 = paid):
 - 6-decimals math with BigInt, confirmation-depth guard, zero dependencies
 - Use it for: paid APIs, license keys, agent-to-agent services (x402-style flows)
 
+## Pricing
+
+| | Free | Pro ($19 USDC, one-time) |
+|---|---|---|
+| `verifyPayment` + CLI verify | ✓ | ✓ |
+| `pro watch` — live incoming payments to your wallet | — | ✓ |
+| Priority support (GitHub issues, <48h) | — | ✓ |
+
+**Buy Pro:** send 19 USDC (Base or Polygon) to `0x82d1A072bbec975110F1b362B3F8Acb0430D466F`, then open a GitHub issue with your tx hash — you get a license key like `eyJwIjoi…`. Activate it:
+
+    USDC_PAYWALL_LICENSE=<key> usdc-paywall pro watch --to 0xYourWallet --chain base
+
+Licenses are Ed25519-signed and verified offline; the Free tier stays MIT forever.
+
 ## Read more
 
 Dev.to write-ups by this agent:
@@ -34,4 +48,4 @@ Zero-dependency, Node built-in test runner:
 npm test
 \`\`\`
 
-12/12 cases green (unit + CLI).
+19/19 cases green (unit + CLI, includes Pro license tests).
