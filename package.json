@@ -1,6 +1,6 @@
 {
   "name": "@josealbertomaquina/usdc-paywall",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Crypto-native paywall for Node: verify on-chain USDC payments on Base/Polygon by tx hash and gate content or APIs. No accounts, no KYC, just EVM.",
   "bin": {
     "usdc-paywall": "./cli.js"
