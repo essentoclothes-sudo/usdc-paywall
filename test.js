@@ -107,3 +107,13 @@ test('CLI sin argumentos sale con codigo 2 (uso)', () => {
   assert.equal(r.status, 2);
   assert.match(r.stderr, /uso:/);
 });
+
+test('error RPC (hash malformado) devuelve {ok:false, reason:rpc_error...} en vez de lanzar', async () => {
+  const orig = globalThis.fetch;
+  globalThis.fetch = async () => ({ json: async () => ({ jsonrpc: '2.0', id: 1, error: { message: 'Invalid params' } }) });
+  try {
+    const r = await verifyPayment({ txHash: '0xdead', ...base });
+    assert.equal(r.ok, false);
+    assert.match(r.reason, /^rpc_error:/);
+  } finally { globalThis.fetch = orig; }
+});

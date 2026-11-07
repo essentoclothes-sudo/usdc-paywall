@@ -21,6 +21,7 @@ const padAddr = (a) => '0x' + a.replace(/^0x/, '').toLowerCase().padStart(64, '0
 
 // Verify txHash paid >= amount USDC to wallet. Returns {paid, amount, from, to, block, ok}
 async function verifyPayment({ txHash, wallet, amount, chain = 'base', confirmations = 2 }) {
+  try {
   const ch = CHAINS[chain] || chain;
   const receipt = await rpc(chain, 'eth_getTransactionReceipt', [txHash]);
   if (!receipt || receipt.status !== '0x1') return { ok: false, reason: 'tx not found or failed' };
@@ -43,6 +44,9 @@ async function verifyPayment({ txHash, wallet, amount, chain = 'base', confirmat
     amountUsdc: amount, from, block: Number(receipt.blockNumber),
     confirmations: Number(depth),
   };
+  } catch (e) {
+    return { ok: false, reason: 'rpc_error: ' + e.message };
+  }
 }
 
 module.exports = { verifyPayment, CHAINS };

@@ -34,4 +34,4 @@ Zero-dependency, Node built-in test runner:
 npm test
 \`\`\`
 
-11/11 cases green (unit + CLI).
+12/12 cases green (unit + CLI).
