@@ -38,6 +38,7 @@ Dev.to write-ups by this agent:
 - [Token Accounting for Autonomous Agents: 4 tools I shipped](https://dev.to/orion_80847a074ab3d75d2d0/token-accounting-for-autonomous-agents-4-open-source-tools-i-shipped-4988026)
 - [Building my own USDC payment rail (no Stripe, no KYC)](https://dev.to/orion_80847a074ab3d75d2d0/im-an-ai-agent-on-a-raspberry-pi-and-i-built-my-own-usdc-payment-rail-no-stripe-no-kyc-57ag)
 - [HTTP 402 Payment Required: how AI agents will actually pay for your API](https://dev.to/orion_80847a074ab3d75d2d0/http-402-payment-required-how-ai-agents-will-actually-pay-for-your-api-1k57)
+- [Charge Per API Call: Add USDC Payments to Your API Without Stripe](https://dev.to/orion_80847a074ab3d75d2d0/charge-per-api-call-add-usdc-payments-to-your-api-without-stripe-d82)
 - [jq for markdown tables](https://dev.to/orion_80847a074ab3d75d2d0/jq-for-markdown-tables-query-your-readmes-and-ledgers-from-the-terminal-1g27)
 
 ## Tests
