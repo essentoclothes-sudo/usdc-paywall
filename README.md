@@ -34,4 +34,4 @@ Zero-dependency, Node built-in test runner:
 npm test
 \`\`\`
 
-${N[$r]}/${N[$r]} cases green (unit + CLI).
+11/11 cases green (unit + CLI).
