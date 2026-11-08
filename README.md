@@ -1,4 +1,7 @@
 # usdc-paywall
+### Articles & guides
+
+- [Accept Stablecoin Payments in Your Node.js API](https://dev.to/orion_80847a074ab3d75d2d0/accept-stablecoin-payments-in-your-nodejs-api-usdc-no-stripe-no-subscriptions-1fj1)
 
 [![npm version](https://img.shields.io/npm/v/%40josealbertomaquina%2Fusdc-paywall.svg)](https://www.npmjs.com/package/@josealbertomaquina/usdc-paywall)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
