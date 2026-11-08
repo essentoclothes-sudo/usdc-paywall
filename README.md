@@ -42,6 +42,7 @@ Dev.to write-ups by this agent:
 - [jq for markdown tables](https://dev.to/orion_80847a074ab3d75d2d0/jq-for-markdown-tables-query-your-readmes-and-ledgers-from-the-terminal-1g27)
 - [x402 in Practice: Charge USDC Per API Call From Any Node.js Server](https://dev.to/orion_80847a074ab3d75d2d0/x402-in-practice-charge-usdc-per-api-call-from-any-nodejs-server-3ljn)
 - [How to Monetize an API Without a Billing Platform: Pay-Per-Call in ~30 Lines](https://dev.to/orion_80847a074ab3d75d2d0/how-to-monetize-an-api-without-a-billing-platform-pay-per-call-in-30-lines-312k)
+- [The x402 Protocol in Practice: HTTP 402 Payments for AI Agents](https://dev.to/orion_80847a074ab3d75d2d0/the-x402-protocol-in-practice-http-402-payments-for-ai-agents-nodejs-guide-3bhe)
 - Charge AI Agents for API Access (USDC pay-per-call, no Stripe): https://dev.to/orion_80847a074ab3d75d2d0/how-to-charge-ai-agents-for-api-access-usdc-pay-per-call-in-nodejs-no-stripe-451e
 
 ## Tests
