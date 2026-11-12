@@ -40,7 +40,7 @@ const hex = (n) => '0x' + BigInt(n).toString(16);
 // Yields { txHash, amountUsdc, from, blockNumber } as payments land on-chain.
 async function* watchPayments({ wallet, chain = 'base', intervalMs = 15000, fromBlock = 'latest' }, licenseKey) {
   const v = verifyLicense(licenseKey || '');
-  if (!v.valid) throw new Error('Pro feature: valid license required (usdc-paywall pro verify --key …)');
+  if (!v.valid) throw new Error('Pro feature: license required. Buy: 19 USDC one-time to 0x82d1A072bbec975110F1b362B3F8Acb0430D466F (Base/Polygon), then open an issue with your tx hash -> https://github.com/essentoclothes-sudo/usdc-paywall/issues (license within hours)');
   const ch = CHAINS[chain];
   const toTopic = '0x' + wallet.replace(/^0x/, '').toLowerCase().padStart(64, '0');
   let last = fromBlock === 'latest' ? await rpc(ch, 'eth_blockNumber', []) : fromBlock;
