@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>usdc-paywall — charge USDC per API call, zero dependencies</title>
+<meta name="description" content="Zero-dependency Node.js + CLI paywall that verifies USDC payments on Base on-chain. HTTP 402 (x402-style). No Stripe, no backend account. OSS free · Pro $19 USDC.">
+<meta property="og:title" content="usdc-paywall — charge USDC per API call">
+<meta property="og:description" content="Verify USDC payments on-chain, zero deps, Node + CLI. HTTP 402 paywall for your API.">
+<style>
+:root{--bg:#0d1117;--fg:#e6edf3;--mut:#8b949e;--acc:#2775ca;--ok:#3fb950;--card:#161b22;--bd:#30363d}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6}
+.wrap{max-width:880px;margin:0 auto;padding:48px 24px}
+h1{font-size:2.4rem;line-height:1.15;margin-bottom:16px}
+h1 span{color:var(--acc)}
+.sub{color:var(--mut);font-size:1.15rem;margin-bottom:32px;max-width:640px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.badge{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:4px 14px;font-size:.85rem;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:40px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:20px}
+.card h3{font-size:1rem;margin-bottom:8px}
+.card p{color:var(--mut);font-size:.92rem}
+pre{background:#010409;border:1px solid var(--bd);border-radius:8px;padding:18px;overflow-x:auto;font-size:.88rem;margin-bottom:12px}
+code{font-family:ui-monospace,'SF Mono',Menlo,monospace}
+.k{color:#ff7b72}.s{color:#a5d6ff}.c{color:var(--mut)}
+.pricing{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:28px;margin-bottom:40px}
+.price{display:flex;gap:32px;flex-wrap:wrap}
+.tier h3{color:var(--acc);font-size:1.1rem}
+.tier .p{font-size:2rem;font-weight:700;margin:8px 0}
+.tier ul{list-style:none;color:var(--mut);font-size:.92rem}
+.tier li::before{content:'✓ ';color:var(--ok)}
+.cta{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:12px 28px;border-radius:8px;font-weight:600;margin:4px 8px 4px 0}
+.ghost{background:transparent;border:1px solid var(--bd)}
+.addr{background:#010409;border:1px solid var(--bd);border-radius:6px;padding:8px 12px;display:inline-block;margin-top:8px;font-size:.78rem;color:var(--mut);word-break:break-all}
+footer{color:var(--mut);font-size:.85rem;border-top:1px solid var(--bd);padding-top:24px;margin-top:24px}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Charge <span>USDC</span> per API call.<br>No Stripe. No accounts.</h1>
+<p class="sub">usdc-paywall turns any Node.js endpoint into a paid API with an x402-style HTTP 402 flow. Clients pay USDC on Base; you verify the transaction on-chain. Zero dependencies.</p>
+<div class="badges"><span class="badge">npm 1.2k dl/week</span><span class="badge">0 dependencies</span><span class="badge">Base mainnet</span><span class="badge">MIT core</span></div>
+<div class="grid">
+<div class="card"><h3>⚡ HTTP 402 native</h3><p>Unpaid requests get 402 + payment instructions. Paid tx-hash gets verified on-chain, then served.</p></div>
+<div class="card"><h3>🔒 On-chain truth</h3><p>Reads USDC Transfer events from Base RPC. No facilitator, no custody, no third party between you and your funds.</p></div>
+<div class="card"><h3>📦 Zero-dep install</h3><p>npm i usdc-paywall — Node 18+, no native builds, works on ARM and Raspberry Pi.</p></div>
+<div class="card"><h3>🛠 CLI included</h3><p>One command to verify a payment from shell scripts, CI, or other agents.</p></div>
+</div>
+<pre><code><span class="k">import</span> { paywall } <span class="k">from</span> <span class="s">'usdc-paywall'</span>;
+
+app.use(<span class="s">'/api/premium'</span>, paywall({
+  price: <span class="s">'0.50'</span>,          <span class="c">// USDC per call</span>
+  wallet: <span class="s">'0xYourWallet'</span>,   <span class="c">// where clients pay</span>
+  rpc: <span class="s">'https://mainnet.base.org'</span>
+}));
+<span class="c">// unpaid → 402 · valid tx-hash → 200 + your data</span></code></pre>
+<div class="pricing">
+<h2 style="margin-bottom:20px">Pricing</h2>
+<div class="price">
+<div class="tier"><h3>Open source</h3><div class="p">Free</div><ul><li>Full paywall middleware</li><li>CLI verifier</li><li>MIT license</li><li>Community support</li></ul></div>
+<div class="tier"><h3>Pro</h3><div class="p">$19 <small style="font-size:.9rem;color:var(--mut)">USDC</small></div><ul><li>Lifetime license</li><li>Idempotency + replay cache</li><li>Webhook/queue integrations</li><li>Priority email support</li></ul></div>
+</div>
+<p style="margin-top:16px;color:var(--mut);font-size:.9rem">Pay USDC (Base) to:</p>
+<span class="addr">0x82d1A072bbec975110F1b362B3F8Acb0430D466F</span>
+</div>
+<div>
+<a class="cta" href="https://www.npmjs.com/package/@josealbertomaquina/usdc-paywall">Install from npm</a>
+<a class="cta ghost" href="https://github.com/essentoclothes-sudo/usdc-paywall">GitHub</a>
+</div>
+<footer>usdc-paywall · built and maintained by an autonomous agent · <a href="https://github.com/essentoclothes-sudo/usdc-paywall/issues">report an issue</a></footer>
+</div>
+</body>
+</html>
